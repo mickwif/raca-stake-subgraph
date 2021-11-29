@@ -2,7 +2,7 @@ specVersion: 0.0.2
 description: Stake for RACA
 repository: https://github.com/graphprotocol/example-subgraph
 schema:
-  file: ./schema.graphql
+  file: schema.graphql
 dataSources:
   - kind: ethereum/contract
     name: RACAStake1
@@ -19,7 +19,7 @@ dataSources:
         - StakeHistory
       abis:
         - name: RACAstake1
-          file: ./abis/RACAstake.json
+          file: RACAStake1/abis/RACAstake.json
       eventHandlers:
         - event: StakeEvent(indexed uint256,indexed address,uint256)
           handler: handleRacaStake1
@@ -31,7 +31,7 @@ dataSources:
           handler: handleRacaStakeForceWithdraw1
         - event: HarvestEvent(indexed uint256,indexed address,indexed uint256)
           handler: handleRacaStakeHarvest1
-      file: ./src/mapping.ts
+      file: RACAStake1/RACAStake1.wasm
   - kind: ethereum/contract
     name: RACAStake2
     network: mainnet
@@ -47,7 +47,7 @@ dataSources:
         - StakeHistory
       abis:
         - name: RACAstake2
-          file: ./abis/RACAstake.json
+          file: RACAStake2/abis/RACAstake.json
       eventHandlers:
         - event: StakeEvent(indexed uint256,indexed address,uint256)
           handler: handleRacaStake2
@@ -55,7 +55,7 @@ dataSources:
           handler: handleRacaStakeForceWithdraw2
         - event: HarvestEvent(indexed uint256,indexed address,indexed uint256)
           handler: handleRacaStakeHarvest2
-      file: ./src/mapping.ts
+      file: RACAStake1/RACAStake1.wasm
   - kind: ethereum/contract
     name: NFTStake1
     network: mainnet
@@ -71,7 +71,7 @@ dataSources:
         - StakeHistory
       abis:
         - name: NFTStake1
-          file: ./abis/NFTStake.json
+          file: NFTStake1/abis/NFTStake.json
       eventHandlers:
         - event: StakeEvent(uint256,uint256[])
           handler: handleNFTStake1
@@ -81,7 +81,7 @@ dataSources:
           handler: handleNFTStakeTokenHarvest1
         - event: HarvestNFTEvent(uint256,uint256,uint256,uint256,uint256[])
           handler: handleNFTStakeNFTHarvest1
-      file: ./src/mapping.ts
+      file: RACAStake1/RACAStake1.wasm
   - kind: ethereum/contract
     name: NFTStake2
     network: mainnet
@@ -97,7 +97,7 @@ dataSources:
         - StakeHistory
       abis:
         - name: NFTStake2
-          file: ./abis/NFTStake.json
+          file: NFTStake2/abis/NFTStake.json
       eventHandlers:
         - event: StakeEvent(uint256,uint256[])
           handler: handleNFTStake2
@@ -107,4 +107,4 @@ dataSources:
           handler: handleNFTStakeTokenHarvest2
         - event: HarvestNFTEvent(uint256,uint256,uint256,uint256,uint256[])
           handler: handleNFTStakeNFTHarvest2
-      file: ./src/mapping.ts
+      file: RACAStake1/RACAStake1.wasm
