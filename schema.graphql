@@ -2,18 +2,9 @@ type StakeHistory @entity {
   id: ID!
   user: Bytes!
   poolId: BigInt!
-  stakeTokenAddress: Bytes
-  stakeAmount: BigInt!
-  stakeNFTAddress: Bytes
+  contract: Bytes!
+  type: String!
   timestamp: BigInt!
   txhash: Bytes!
 }
-type RACAStake1Pool @entity {
-  id: ID!
-  tokenAddress: Bytes
-  stakeAmount: BigInt
-  stakeTime: BigInt
-  nftAddress: Bytes
-  nftTokenIds: [BigInt!]
-  nftLeft: BigInt
-}
+

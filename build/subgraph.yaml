@@ -8,9 +8,9 @@ dataSources:
     name: RACAStake1
     network: mainnet
     source:
-      address: "0x325B2604E3fd2A17C5C99DAb3769051d3BaCa88f"
+      address: "0xe3BA409D14180801BC4448b96859157f196D0E23"
       abi: RACAstake1
-      startBlock: 10197791
+      startBlock: 12643605
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.4
@@ -22,15 +22,11 @@ dataSources:
           file: RACAStake1/abis/RACAstake.json
       eventHandlers:
         - event: StakeEvent(indexed uint256,indexed address,uint256)
-          handler: handleRacaStake1
-        - event: AddPoolEvent(indexed address,indexed uint256,uint256,indexed address)
-          handler: handleAddPool1
-        - event: AddNFT2PoolEvent(indexed uint256,uint256[])
-          handler: handleAddNFT2Pool1
+          handler: handleRacaStake
         - event: ForceWithdrawEvent(indexed uint256,indexed address,indexed uint256)
-          handler: handleRacaStakeForceWithdraw1
+          handler: handleRacaStakeForceWithdraw
         - event: HarvestEvent(indexed uint256,indexed address,indexed uint256)
-          handler: handleRacaStakeHarvest1
+          handler: handleRacaStakeHarvest
       file: RACAStake1/RACAStake1.wasm
   - kind: ethereum/contract
     name: RACAStake2
@@ -50,19 +46,19 @@ dataSources:
           file: RACAStake2/abis/RACAstake.json
       eventHandlers:
         - event: StakeEvent(indexed uint256,indexed address,uint256)
-          handler: handleRacaStake2
+          handler: handleRacaStake
         - event: ForceWithdrawEvent(indexed uint256,indexed address,indexed uint256)
-          handler: handleRacaStakeForceWithdraw2
+          handler: handleRacaStakeForceWithdraw
         - event: HarvestEvent(indexed uint256,indexed address,indexed uint256)
-          handler: handleRacaStakeHarvest2
+          handler: handleRacaStakeHarvest
       file: RACAStake1/RACAStake1.wasm
   - kind: ethereum/contract
-    name: NFTStake1
+    name: RACAStake3
     network: mainnet
     source:
-      address: "0x7A19c2Dd05e259757279702b725222C9479780ac"
-      abi: NFTStake1
-      startBlock: 10898766
+      address: "0x325B2604E3fd2A17C5C99DAb3769051d3BaCa88f"
+      abi: RACAstake3
+      startBlock: 10181129
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.4
@@ -70,41 +66,13 @@ dataSources:
       entities:
         - StakeHistory
       abis:
-        - name: NFTStake1
-          file: NFTStake1/abis/NFTStake.json
+        - name: RACAstake3
+          file: RACAStake3/abis/RACAstake.json
       eventHandlers:
-        - event: StakeEvent(uint256,uint256[])
-          handler: handleNFTStake1
-        - event: ForceWithdrawEvent(uint256,uint256,uint256,uint256[])
-          handler: handleNFTStakeForceWithdraw1
-        - event: HarvestTokenEvent(uint256,uint256,uint256,uint256[])
-          handler: handleNFTStakeTokenHarvest1
-        - event: HarvestNFTEvent(uint256,uint256,uint256,uint256,uint256[])
-          handler: handleNFTStakeNFTHarvest1
-      file: RACAStake1/RACAStake1.wasm
-  - kind: ethereum/contract
-    name: NFTStake2
-    network: mainnet
-    source:
-      address: "0xb1A620c645152165cce817800Df62AF13aA530bd"
-      abi: NFTStake2
-      startBlock: 11310600
-    mapping:
-      kind: ethereum/events
-      apiVersion: 0.0.4
-      language: wasm/assemblyscript
-      entities:
-        - StakeHistory
-      abis:
-        - name: NFTStake2
-          file: NFTStake2/abis/NFTStake.json
-      eventHandlers:
-        - event: StakeEvent(uint256,uint256[])
-          handler: handleNFTStake2
-        - event: ForceWithdrawEvent(uint256,uint256,uint256,uint256[])
-          handler: handleNFTStakeForceWithdraw2
-        - event: HarvestTokenEvent(uint256,uint256,uint256,uint256[])
-          handler: handleNFTStakeTokenHarvest2
-        - event: HarvestNFTEvent(uint256,uint256,uint256,uint256,uint256[])
-          handler: handleNFTStakeNFTHarvest2
+        - event: StakeEvent(indexed uint256,indexed address,uint256)
+          handler: handleRacaStake
+        - event: ForceWithdrawEvent(indexed uint256,indexed address,indexed uint256)
+          handler: handleRacaStakeForceWithdraw
+        - event: HarvestEvent(indexed uint256,indexed address,indexed uint256)
+          handler: handleRacaStakeHarvest
       file: RACAStake1/RACAStake1.wasm

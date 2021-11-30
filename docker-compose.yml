@@ -18,7 +18,7 @@ services:
       postgres_db: graph-node
       ipfs: 'ipfs:5001'
       # Change next line if you want to connect to a different JSON-RPC endpoint
-      ethereum: 'mainnet:https://bsc-dataseed.binance.org/'
+      ethereum: 'bsc:https://speedy-nodes-nyc.moralis.io/b13887d17cd212afa4c1723d/bsc/testnet/archive'
       GRAPH_LOG: info
   ipfs:
     image: ipfs/go-ipfs:v0.4.23
